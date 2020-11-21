@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\UserController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,11 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('/upload', function (\Illuminate\Http\Request  $request) {
-    $request->image->store('images', 'public');
-//    dd($request->image);
-    return "Uploaded";
-});
+Route::post('/upload', [UserController::class, 'uploadAvatar']);
 
 Auth::routes();
 
