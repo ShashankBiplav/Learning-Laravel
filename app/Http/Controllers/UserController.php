@@ -13,12 +13,13 @@ class UserController extends Controller
     {
         if ($request->hasFile('image')) {
             User::uploadAvatar($request->image);
-            //success message
-            $request->session()->flash('message', 'Avatar Updated');
-            return redirect()->back();
+            //success message in session
+//            $request->session()->flash('message', 'Avatar Updated');
+            return redirect()->back()->with('message', 'Avatar Updated');
         }
-        $request->session()->flash('error', 'Avatar updating failed');
-        return redirect()->back();
+        //error message in session
+//        $request->session()->flash('error', 'Avatar updating failed');
+        return redirect()->back()->with('error', 'Avatar updating failed');
     }
 
 }
