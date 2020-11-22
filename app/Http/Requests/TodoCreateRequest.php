@@ -13,7 +13,7 @@ class TodoCreateRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,15 @@ class TodoCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => 'required| max:255',
+            'tag' => 'required',
         ];
+    }
+    public function messages()
+    {
+         return [
+             'title.max' => 'Todo title should be less than 255 characters.',
+
+         ];
     }
 }

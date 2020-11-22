@@ -5,10 +5,10 @@
         <div class="alert alert-danger text-center">{{session()->get('error')}}</div>
     @endif
     @if ($errors->any())
-        <div class="alert alert-danger">
+        <div>
             <ul>
                 @foreach ($errors->all() as $error)
-                    <li class="text-center">{{ $error }}</li>
+                    <li class="text-center list-group-item list-group-item-danger">{{ $error }}</li>
                 @endforeach
             </ul>
         </div>
