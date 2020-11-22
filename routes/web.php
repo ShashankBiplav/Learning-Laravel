@@ -9,7 +9,10 @@ Route::get('/todos', [TodoController::class, 'index']);
 
 Route::get('todos/create', [TodoController::class, 'createTodo']);
 
+Route::post('/todos/create',[TodoController::class,'store']);
+
 Route::get('/todos/edit', [TodoController::class, 'editTodo']);
+
 
 
 Route::get('/', function () {

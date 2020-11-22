@@ -4,5 +4,13 @@
     @elseif(session()->has('error'))
         <div class="alert alert-danger text-center">{{session()->get('error')}}</div>
     @endif
-
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li class="text-center">{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 </div>
