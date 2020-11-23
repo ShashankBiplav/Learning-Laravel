@@ -15,8 +15,8 @@
                                 <li class="list-group-item list-group-item-primary text-center">Todos</li>
                                 @forelse($todos as $todo)
                                     <li class="d-flex justify-content-start list-group-item">
-                                        {{$todo-> title}}  <p class="mx-4">{{$todo->tag}}</p>
-                                        <a href="/todos/edit" class="btn btn-outline-success mx-auto">Edit</a>
+                                        {{$todo-> title}}  <small class="mx-4 text-muted text-center">{{$todo->tag}}</small>
+                                        <a href="{{'/todos/edit/'.$todo->id}}" class="btn btn-outline-success mx-auto">Edit</a>
                                     </li>
                                 @empty
                                     No todos to display

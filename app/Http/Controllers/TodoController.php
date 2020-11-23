@@ -11,17 +11,20 @@ class TodoController extends Controller
     public function index()
     {
         $todos = Todo::all();
-        return view('todos.index',['todos'=> $todos]);
+        return view('todos.index', ['todos' => $todos]);
     }
 
-    public function createTodo()
+    public function editTodo(Todo $todo) //route model binding
     {
-        return view('todos.create');
+        return view('todos.edit', ['todo' => $todo]);
     }
 
-    public function editTodo()
+    public function updateTodo(Request $request, Todo $todo)
     {
-        return view('todos.edit');
+        $todo->update(['title'=>$request->title,
+            'tag'=>$request->tag,
+            ]);
+        return redirect('/todos')->with('message', 'Todo Updated.');
     }
 
     public function store(TodoCreateRequest $request)

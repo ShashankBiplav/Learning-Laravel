@@ -7,12 +7,11 @@ use App\Http\Controllers\TodoController;
 
 Route::get('/todos', [TodoController::class, 'index']);
 
-Route::get('todos/create', [TodoController::class, 'createTodo']);
+Route::post('/todos/create', [TodoController::class, 'store']);
 
-Route::post('/todos/create',[TodoController::class,'store']);
+Route::get('/todos/edit/{todo}', [TodoController::class, 'editTodo']);
 
-Route::get('/todos/edit', [TodoController::class, 'editTodo']);
-
+Route::put('/todos/update/{todo}', [TodoController::class, 'updateTodo'])->name('todo.update');
 
 
 Route::get('/', function () {
