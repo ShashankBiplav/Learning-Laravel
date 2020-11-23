@@ -10,7 +10,8 @@ class TodoController extends Controller
 {
     public function index()
     {
-        return view('todos.index');
+        $todos = Todo::all();
+        return view('todos.index',['todos'=> $todos]);
     }
 
     public function createTodo()
@@ -25,18 +26,6 @@ class TodoController extends Controller
 
     public function store(TodoCreateRequest $request)
     {
-//        $request->validate([
-//            'title' => 'required| max:255',
-//            'tag' => 'required',
-//        ]);
-//        $rules = [];
-//        $messages = [];
-//        $validator = Validator::make($request->all(), $rules, $messages);
-//        if ($validator->fails()) {
-//            return redirect()->back()
-//                ->withErrors($validator)
-//                ->withInput();
-//        }
         Todo::create($request->all());
         return redirect()->back()->with('message', 'Todo Added.');
     }

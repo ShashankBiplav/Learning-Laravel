@@ -10,4 +10,8 @@ class Todo extends Model
     use HasFactory;
 
     protected $fillable = ['title', 'tag'];
+
+    public function getTagAttribute($value){
+        return ucfirst($value);
+    }
 }

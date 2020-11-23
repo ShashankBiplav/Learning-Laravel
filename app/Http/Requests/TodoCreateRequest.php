@@ -28,11 +28,11 @@ class TodoCreateRequest extends FormRequest
             'tag' => 'required',
         ];
     }
+
     public function messages()
     {
-         return [
-             'title.max' => 'Todo title should be less than 255 characters.',
-
-         ];
+        return [
+            'title.max' => 'Todo title should be less than 255 characters.',
+        ];
     }
 }
